@@ -6,6 +6,14 @@ export const Container = styled.div`
 
 `;
 
+export const CamposPreenche = styled.div`
+    input{
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+`;
+
 
 export const HeaderTop = styled.div`
     display: flex;
@@ -61,12 +69,18 @@ export const LoginContainer = styled.div`
 
     display: flex;
     justify-content: space-bewteen;
+    flex-wrap: wrap;
 
     .areaAppAbout{
 
-        width: 400px;
-        margin-right: 30px;
-        margin-left: 50px;
+        max-width: 400px;
+        width: 100%;
+
+        @media all and (min-width: 1024px){
+            margin-right: 30px;
+            margin-left: 20px;
+        }
+
     
         .areaAppImage{
             height: 400px;
@@ -95,13 +109,16 @@ export const LoginContainer = styled.div`
     .areaTextAbout{
 
         text-align: center;
+        margin-bottom: 30px;
 
         .areaImagemLogo{
             
         }
 
         .areaImagemLogo img{
-            width: 400px;
+            max-width: 400px;
+            width: 90%;
+            border: 5px solid #fff;
         }
 
         .titleAbout{

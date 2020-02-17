@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, HeaderTop, HeaderContent } from './styles';
 
 import  logo from '../../assets/images/logo.png';
-import  telaApp from '../../assets/images/teste.jpg';
+import  telaApp from '../../assets/images/img01.png';
 import  keyEntregue from '../../assets/images/key.png';
 import  downloads from '../../assets/images/mobile2.png';
 
@@ -28,7 +28,7 @@ export default function Header() {
             </div>
             <div className="arae2Content">
                 <div className="fotoApp">
-                    
+                <img src={telaApp} border="0" alt="" />
                 </div>
                 <a href="" className="btnDownload">
                     <img src={downloads} border="0" alt="" />

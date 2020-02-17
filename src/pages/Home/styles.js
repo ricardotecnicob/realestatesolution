@@ -20,6 +20,7 @@ export const About = styled.div`
 
     display: flex;
     justify-content: space-bewteen;
+    line-height: 1.2;
 
     .areaAppAbout{
 
@@ -30,7 +31,7 @@ export const About = styled.div`
         .areaAppImage{
             height: 400px;
             width: 320px;
-            background: red;
+            
         }
     
         .areaAppDownload{
@@ -93,6 +94,7 @@ export const Depositions = styled.div`
     border-top: 5px solid #fff;
 
     border-bottom: 5px solid #fff;
+    line-height: 1.2;
 
     display: flex;
     flex-direction: row-reverse;
@@ -107,7 +109,7 @@ export const Depositions = styled.div`
         .areaAppImage{
             height: 400px;
             width: 320px;
-            background: red;
+            
         }
     
         .areaAppDownload{
@@ -182,6 +184,7 @@ export const Contact = styled.div`
     border-top: 5px solid #fff;
 
     border-bottom: 5px solid #fff;
+    line-height: 1.2;
 
     display: flex;
     justify-content: space-bewteen;
@@ -195,7 +198,7 @@ export const Contact = styled.div`
         .areaAppImage{
             height: 400px;
             width: 320px;
-            background: red;
+            
         }
     
         .areaAppDownload{
@@ -249,6 +252,8 @@ export const Contact = styled.div`
             .groupLadoALado input{
                 margin-bottom: 15px;
                 padding: 10px;
+                font-size: 20px;
+                margin-right: 10px;
             }
 
             .groupLadoALado textarea{

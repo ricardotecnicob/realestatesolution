@@ -1,6 +1,6 @@
 <p align="center">
 <a href="#" alt="Shawee">
-  <img src="https://realestatesolution.netlify.com/static/media/logo.5b0f9f47.png" height="120px"></a></p>
+  <img src="https://realestatesolution.netlify.com/static/media/logo.5b0f9f47.png" height="150px"></a></p>
 
 <br />
 <a href="" alt="SHAWEE">Aplicação Mobile</a>

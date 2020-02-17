@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import fundo from '../../assets/images/fundo2.png';
+//arae2Content
 
 export const Container = styled.div`
 
@@ -63,6 +64,7 @@ export const HeaderContent = styled.div`
     text-transform: uppercase;
     text-align: center;
     padding: 30px;
+    line-height: 1.2;
 
     .imgKey{
         height: 150px;
@@ -86,7 +88,6 @@ export const HeaderContent = styled.div`
     .fotoApp{
         height: 400px;
         width: 320px;
-        background: red;
     }
 
     .btnDownload{

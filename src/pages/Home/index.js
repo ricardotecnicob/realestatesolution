@@ -7,7 +7,9 @@ import Header from '../../components/Header';
 import  logo from '../../assets/images/logo.png';
 import  downloads from '../../assets/images/mobile2.png';
 import  avatar from '../../assets/images/default_user_profile.png';
-
+import  telaApp01 from '../../assets/images/img02.png';
+import  telaApp02 from '../../assets/images/img03.png';
+import  telaApp03 from '../../assets/images/img04.png';
 
 export default function Home() {
 
@@ -18,7 +20,7 @@ export default function Home() {
             <About>
                 <div className="areaAppAbout">
                     <div className="areaAppImage">
-                         
+                        <img src={telaApp01} border="0" alt="" />
                     </div>
                     <div className="areaAppDownload">
                         <img src={downloads} border="0" alt="" />
@@ -37,7 +39,7 @@ export default function Home() {
             <Depositions>
                 <div className="areaAppAbout">
                     <div className="areaAppImage">
-                         
+                    <img src={telaApp02} border="0" alt="" />
                     </div>
                     <div className="areaAppDownload">
                         <img src={downloads} border="0" alt="" />
@@ -62,7 +64,7 @@ export default function Home() {
             <Contact>
                 <div className="areaAppAbout">
                     <div className="areaAppImage">
-                         
+                        <img src={telaApp03} border="0" alt="" />
                     </div>
                     <div className="areaAppDownload">
                         <img src={downloads} border="0" alt="" />

@@ -95,7 +95,7 @@ export const ContainerListInteresseContainer = styled.div`
 
 
 export const CardImoveis = styled.div`
-    background: green;
+    background: #682407;
     width: 200px;
     padding: 10px;
     text-align: center;
@@ -122,8 +122,8 @@ export const CardImoveis = styled.div`
     }
 
     button:hover{
-        background: #292;
-        border: 1px solid #292;
+        background: #292929;
+        border: 1px solid #292929;
         cursor: pointer;
     }
 

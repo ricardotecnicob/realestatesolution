@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 import { Container, HeaderTop, ContainerOrg, ContainerMenu, ContainerListInteresse, CardImoveis, ContainerListInteresseContainer, Rodape } from './styles';
+
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 import  logo from '../../assets/images/logo.png';
 import  avatar from '../../assets/images/default_user_profile.png';
 import  imovel from '../../assets/images/home-photo.png';
 
-export default function Dashboard() {
+export default function ListaImoveis() {
+
 
   const [dimmer, setDimmer] = useState('');
   const [open, setOpen] = useState(false);
@@ -26,6 +28,7 @@ export default function Dashboard() {
     setOpen(false);
 
   }
+
 
 
   return (
@@ -54,7 +57,7 @@ export default function Dashboard() {
                 </ul>
             </ContainerMenu>
             <ContainerListInteresse>
-                <h1>Lista de Pessoas Interessadas</h1>
+                <h1>Lista de Imóveis</h1>
                 <ContainerListInteresseContainer>
                     <CardImoveis>
                         <div className="areaImg">
@@ -70,7 +73,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis>
                     <CardImoveis>
                         <div className="areaImg">
@@ -86,7 +89,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis>
                     <CardImoveis>
                         <div className="areaImg">
@@ -102,7 +105,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis>
                     <CardImoveis>
                         <div className="areaImg">
@@ -118,7 +121,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis>
                     <CardImoveis>
                         <div className="areaImg">
@@ -134,7 +137,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis> <CardImoveis>
                         <div className="areaImg">
                           <img src={imovel} border="0" alt="" height="120px" width="170px" />
@@ -149,7 +152,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis> <CardImoveis>
                         <div className="areaImg">
                           <img src={imovel} border="0" alt="" height="120px" width="170px" />
@@ -164,7 +167,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis> <CardImoveis>
                         <div className="areaImg">
                           <img src={imovel} border="0" alt="" height="120px" width="170px" />
@@ -179,7 +182,7 @@ export default function Dashboard() {
 
                             <br />
                         </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Detalhes</button>
                     </CardImoveis>
                 </ContainerListInteresseContainer>
             </ContainerListInteresse>
@@ -187,22 +190,25 @@ export default function Dashboard() {
     </Container>
       <Rodape>
           Real Estate Solution All rights reserved
-      </Rodape> 
-      <Modal dimmer={dimmer} open={open} size="mini" onClick={() => close()}>
-          <Modal.Header>Detalhes Interessado</Modal.Header>
-          <Modal.Content image>
-            <Modal.Description>
-              <Header>Informações</Header>
-              <strong>NOME:</strong> <label>Ricardo Alves</label><br />
-              <strong>TELEFONE:</strong> <label>(031) 99999-9999</label>
-            </Modal.Description>
-          </Modal.Content>
-          <Modal.Actions>
+      </Rodape>
+      <Modal dimmer={dimmer} open={open} onClick={() => close()}>
+        <Modal.Header>Detalhes Imóvel</Modal.Header>
+        <Modal.Content image>
+          <Image wrapped size='medium' src={imovel} />
+          <Modal.Description>
+            <Header>Casa localizada na Rua X nº 35
+Bairro Amazonas</Header>
+            <p>
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Actions>
             <Button color='red' onClick={() => close()}>
               Sair
             </Button>
           </Modal.Actions>
-        </Modal>
+      </Modal>
     </Container>
   );
 }

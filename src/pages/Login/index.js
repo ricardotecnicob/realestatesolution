@@ -6,6 +6,8 @@ import { Container, LoginContainer, HeaderTop ,  Rodape } from './styles';
 import  logo from '../../assets/images/logo.png';
 import  downloads from '../../assets/images/mobile2.png';
 
+import  telaApp01 from '../../assets/images/img01.png';
+
 const Login = () => {
     return (
     <Container >
@@ -20,7 +22,7 @@ const Login = () => {
         <LoginContainer>
             <div className="areaAppAbout">
                 <div className="areaAppImage">
-                    
+                    <img src={telaApp01} border="0" alt="" />
                 </div>
                 <div className="areaAppDownload">
                     <img src={downloads} border="0" alt="" />
@@ -42,7 +44,7 @@ const Login = () => {
                         <input type="submit" value="Access Panel" /><br/><br/>
                     </div>
                     <div className="groupLadoALado">
-                        <p style={{ fontSize: '15px' }} ><strong>USER:</strong> teste@gmail.com</p>
+                        <p style={{ fontSize: '15px', marginRight: '10px' }} ><strong>USER:</strong> teste@gmail.com</p> 
                         <p style={{ fontSize: '15px' }} ><strong>PASS:</strong> teste@123</p>
                     </div>
                 </form>
