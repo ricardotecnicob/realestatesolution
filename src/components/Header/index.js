@@ -16,7 +16,7 @@ export default function Header() {
                 <img src={logo} border="0" alt="" />
             </div>
             <div className="buttonLogin">
-                <Link to="/" > Login </Link>
+                <Link to="/login" > Login </Link>
             </div>
         </HeaderTop>
         <HeaderContent>

@@ -9,8 +9,8 @@ import  downloads from '../../assets/images/mobile2.png';
 import  avatar from '../../assets/images/default_user_profile.png';
 
 
-
 export default function Home() {
+
   return (
     <>
         <Container >

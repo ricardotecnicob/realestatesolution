@@ -1,18 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import Routes from './routes';
-
-
-import logo from './logo.svg';
+import Rotas from './routes';
 import './App.css';
 
-function App() {
-  return (
-    <Router className="App">
-        <Routes />
-    </Router>
-  );
-}
+const App = props =>  (
+    <BrowserRouter className="App">
+        <Rotas />
+    </BrowserRouter>
+);
 
 export default App;
