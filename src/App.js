@@ -1,14 +1,29 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import { PersistGate } from "redux-persist/integration/react";
+
+import './config/ReactotronConfig';
 import 'semantic-ui-css/semantic.min.css'
 
-import Rotas from './routes';
+import { BrowserRouter } from 'react-router-dom';
+
+import history from "./services/history";
+import Routes from './routes/index';
+
+import { store, persistor } from './store';
+
 import './App.css';
 
 const App = props =>  (
-    <BrowserRouter className="App">
-        <Rotas />
-    </BrowserRouter>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <Router history={history}>
+        <Routes />
+      </Router>
+    </PersistGate>
+  </Provider>
 );
 
 export default App;

@@ -9,6 +9,10 @@ import  logo from '../../assets/images/logo.png';
 import  avatar from '../../assets/images/default_user_profile.png';
 import  imovel from '../../assets/images/home-photo.png';
 
+import { useDispatch } from "react-redux";
+import { signOut } from '../../store/modules/auth/actions';
+import { store } from "../../store";
+
 export default function Dashboard() {
 
   const [dimmer, setDimmer] = useState('');
@@ -17,16 +21,19 @@ export default function Dashboard() {
   const itemParams = params => {
     setDimmer(params.effect);
     setOpen(params.openabrir);
-
-  }
-
+  };
 
   const close = () => {
     setDimmer('');
     setOpen(false);
+  };
 
-  }
+  const dispatch = useDispatch();
+  const { name } = store.getState().auth.user;
 
+  const onHandleLogOut = async () => {
+    await dispatch(signOut());
+  };
 
   return (
     <Container>
@@ -37,11 +44,11 @@ export default function Dashboard() {
             </div>
             <div>
                 <div className="divAvatar">
-                        <img src={avatar} border="0" alt="" /> <br /> <label>User Name</label>
+                        <img src={avatar} border="0" alt="" /> <br /> <label>{name}</label>
                 </div>
                 <br />
                 <div className="buttonLogin">
-                    <Link to="/" > Close </Link>
+                    <Link to="/" onClick={onHandleLogOut} > Close </Link>
                 </div>
             </div>
         </HeaderTop>

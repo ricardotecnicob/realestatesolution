@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { useDispatch } from "react-redux";
+import { signInRequest } from '../../store/modules/auth/actions';
 
 import { Container, LoginContainer, HeaderTop ,  Rodape } from './styles';
 
 import  logo from '../../assets/images/logo.png';
 import  downloads from '../../assets/images/mobile2.png';
 
+import api from "../../services/api";
+
 import  telaApp01 from '../../assets/images/img01.png';
 
 const Login = () => {
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+
+    const dispatch = useDispatch();
+
+    const onHandleSubmit = async (e) => {
+        e.preventDefault();
+        dispatch(signInRequest(email, password));
+    };
+
     return (
     <Container >
         <HeaderTop>
@@ -33,12 +48,22 @@ const Login = () => {
                     <img src={logo} border="0" alt="" />
                 </div>
                 <label className="titleAbout">LOGIN</label>
-                <form className="areaFormAbout">
+                <form className="areaFormAbout" onSubmit={(e) => onHandleSubmit(e)}>
                     <div className="groupLadoALado">
-                        <input type="email" placeholder="E-mail" required  />
+                        <input
+                          type="email"
+                          placeholder="E-mail"
+                          required
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
                     <div className="groupLadoALado">
-                        <input type="password" placeholder="Password" required  />
+                        <input
+                          type="password"
+                          placeholder="Password"
+                          required
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                     <div className="groupLadoALado">
                         <input type="submit" value="Access Panel" /><br/><br/>
