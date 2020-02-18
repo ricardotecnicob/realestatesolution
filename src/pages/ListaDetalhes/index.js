@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, LoginContainer, HeaderTop ,  Rodape, CamposPreenche } from './styles';
@@ -10,24 +10,41 @@ import  imgDetalhe from '../../assets/images/fundo.jpg';
 import  downloads from '../../assets/images/mobile2.png';
 
 import  telaApp01 from '../../assets/images/img01.png';
+import api from "../../services/api";
+import history from "../../services/history";
 
-const ListaDetalhes = () => {
+const ListaDetalhes = ({ match }) => {
+
+    useEffect(() => {
+      console.log(match)
+    }, []);
 
     const [dimmer, setDimmer] = useState('blurring');//blurring
     const [open, setOpen] = useState(true);// false & true
-  
+    const [name, setName] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [immobile, setImmobile] = useState(null);
+    useState(() => {
+      const { id } = match.params;
+
+      if(id !== null) {
+        setImmobile(id);
+      }
+    }, []);
+
     const itemParams = params => {
       setDimmer(params.effect);
       setOpen(params.openabrir);
-  
-    }
-  
-  
-    // const close = () => {
-    //   setDimmer('');
-    //   setOpen(false);
-  
-    // }
+    };
+
+    const onHandleSubmit = async () =>{
+      if (name === null || phone === null || immobile === null ) {
+        return;
+      };
+
+      await api.post('/match', {name, phone, immobile });
+      history.push('/dashboard');
+    };
 
     return (
     <Container >
@@ -70,14 +87,14 @@ Bairro Amazonas</label>
               <Header>Informações</Header>
                 <CamposPreenche>
                     <strong>NOME:</strong> <br/> 
-                    <input type="text" placeholder="Name" className="inputCamp" required  /> <br /><br />
+                    <input type="text" placeholder="Name" className="inputCamp" required onChange={e => setName(e.target.value)} /> <br /><br />
 
                     <strong>TELEFONE:</strong> <br/> 
-                    <input type="text" placeholder="Phone" className="inputCamp" required  /> <br />
+                    <input type="text" placeholder="Phone" className="inputCamp" required onChange={e => setPhone(e.target.value)} /> <br />
 
                     <br />
 
-                    <Button color='red' >
+                    <Button color='red' onClick={onHandleSubmit} >
                         Enviar
                     </Button>
 
