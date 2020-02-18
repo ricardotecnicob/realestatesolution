@@ -36,15 +36,15 @@ Frontend da aplicação Real Estate Solution parte do Hackathon da Shawee
 
 ## Imagens
 
-   <img src="https://realestatesolution.netlify.com/assets/images/tela01.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela02.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela03.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela04.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela05.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela06.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela07.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela08.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela09.jpg" height="400px">
-   <img src="https://realestatesolution.netlify.com/assets/images/tela10.jpg" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0JK7e" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0JPYo" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0JgOP" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0JLhM" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0JNaD" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0Jc1p" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0J0Rq" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0J1ei" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0J9Hl" height="400px">
+   <img src="https://www.imagemhost.com.br/image/0J6gr" height="400px">
 
 MIT
