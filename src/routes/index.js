@@ -6,8 +6,8 @@ import Route from './Route';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-import Dashboard from '../panel/Dashboard';
-import ListaImoveis from '../panel/ListaImoveis';
+import Dashboard from '../pages/Dashboard';
+import ListaImoveis from '../pages/ListaImoveis';
 import ListaDetalhes from '../pages/ListaDetalhes';
 
 export default function Routes() {

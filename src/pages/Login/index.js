@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useDispatch } from "react-redux";
@@ -46,7 +46,7 @@ const Login = () => {
                     <img src={logo} border="0" alt="" />
                 </div>
                 <label className="titleAbout">LOGIN</label>
-                <form className="areaFormAbout">
+                <form className="areaFormAbout" onSubmit={(e) => onHandleSubmit(e)}>
                     <div className="groupLadoALado">
                         <input
                           type="email"
