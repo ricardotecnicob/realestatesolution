@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useStae, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, LoginContainer, HeaderTop ,  Rodape } from './styles';
@@ -9,6 +9,26 @@ import  downloads from '../../assets/images/mobile2.png';
 import  telaApp01 from '../../assets/images/img01.png';
 
 const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassWord] = useState('');
+
+    const valorEmail = value => {
+        setEmail(value);
+    }
+
+    const valorPassword = value => {
+        setPassWord(value);
+    }
+
+    const loginNow = () => {
+
+        if(email == 'teste@gmail.com' && password == 'teste@123'){
+            
+        }
+
+    };
+
     return (
     <Container >
         <HeaderTop>
@@ -35,13 +55,13 @@ const Login = () => {
                 <label className="titleAbout">LOGIN</label>
                 <form className="areaFormAbout">
                     <div className="groupLadoALado">
-                        <input type="email" placeholder="E-mail" required  />
+                        <input type="email"  onChange={(e) => valorEmail(e.target.value)} placeholder="E-mail" required  />
                     </div>
                     <div className="groupLadoALado">
-                        <input type="password" placeholder="Password" required  />
+                        <input type="password" onChange={(e) => valorPassword(e.target.value)} placeholder="Password" required  />
                     </div>
                     <div className="groupLadoALado">
-                        <input type="submit" value="Access Panel" /><br/><br/>
+                        <input type="submit" onClick={() => loginNow()} value="Access Panel" /><br/><br/>
                     </div>
                     <div className="groupLadoALado">
                         <p style={{ fontSize: '15px', marginRight: '10px' }} ><strong>USER:</strong> teste@gmail.com</p> 
