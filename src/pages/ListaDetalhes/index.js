@@ -13,8 +13,8 @@ import  telaApp01 from '../../assets/images/img01.png';
 
 const ListaDetalhes = () => {
 
-    const [dimmer, setDimmer] = useState('');//blurring
-    const [open, setOpen] = useState(false);// false & true
+    const [dimmer, setDimmer] = useState('blurring');//blurring
+    const [open, setOpen] = useState(true);// false & true
   
     const itemParams = params => {
       setDimmer(params.effect);
