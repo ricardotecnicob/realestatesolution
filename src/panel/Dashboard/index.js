@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import api from "../../services/api";
 
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
@@ -17,15 +19,32 @@ export default function Dashboard() {
 
   const [dimmer, setDimmer] = useState('');
   const [open, setOpen] = useState(false);
-
-  const itemParams = params => {
-    setDimmer(params.effect);
-    setOpen(params.openabrir);
-  };
+  const [properties, setProperties] = useState([]);
+  const [user, setUser] = useState([]);
 
   const close = () => {
     setDimmer('');
     setOpen(false);
+  };
+
+  useEffect(() => {
+    async function callProperties() {
+      const response = await api.get('/match');
+      setProperties(response.data);
+    }
+
+    callProperties();
+  }, []);
+
+  const onChangeUser = async (id) => {
+    const response = await api.get(`/user/${id}`);
+    setUser(response.data[0]);
+  };
+
+  const itemParams = async params => {
+    await onChangeUser(params.id);
+    setDimmer(params.effect);
+    setOpen(params.openabrir);
   };
 
   const dispatch = useDispatch();
@@ -63,131 +82,22 @@ export default function Dashboard() {
             <ContainerListInteresse>
                 <h1>Lista de Pessoas Interessadas</h1>
                 <ContainerListInteresseContainer>
-                    <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
+                  {properties.map(({ _id, preco, cidade, bairro, estado, user, images }) => (
+                    <CardImoveis key={_id}>
+                      <div className="areaImg">
+                        <img src={imovel} border="0" alt="" height="120px" width="170px" />
+                      </div>
+                      <div className="areaAdressValue">
+                        Casa localizada no Bairro {bairro} em {cidade}/{estado}.
 
-                              <br />
-                              <br />
+                        <br />
+                        <br />
 
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
+                        Aluguel: R$ {preco?.toLocaleString('de-DE', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}
+                      </div>
+                      <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true, id: user }) } >Dados Interessado</button>
                     </CardImoveis>
-                    <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis>
-                    <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis>
-                    <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis>
-                    <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis> <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis> <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis> <CardImoveis>
-                        <div className="areaImg">
-                          <img src={imovel} border="0" alt="" height="120px" width="170px" />
-                        </div>
-                        <div className="areaAdressValue">
-                            Casa localizada na Rua X nº 35 Bairro Amazonas
-
-                              <br />
-                              <br />
-
-                            Aluguel:  R$ 500,00
-
-                            <br />
-                        </div>
-                        <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true }) } >Dados Interessado</button>
-                    </CardImoveis>
+                  ))}
                 </ContainerListInteresseContainer>
             </ContainerListInteresse>
         </ContainerOrg>
@@ -200,8 +110,9 @@ export default function Dashboard() {
           <Modal.Content image>
             <Modal.Description>
               <Header>Informações</Header>
-              <strong>NOME:</strong> <label>Ricardo Alves</label><br />
-              <strong>TELEFONE:</strong> <label>(031) 99999-9999</label>
+              <strong>NOME:</strong> <label>{user?.name}</label><br />
+              <strong>TELEFONE:</strong> <label>{user.phone}</label><br/>
+              <strong>EMAIL:</strong> <label>{user.email}</label>
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>
