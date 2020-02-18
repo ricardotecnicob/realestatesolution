@@ -9,8 +9,6 @@ import { Container, LoginContainer, HeaderTop ,  Rodape } from './styles';
 import  logo from '../../assets/images/logo.png';
 import  downloads from '../../assets/images/mobile2.png';
 
-import api from "../../services/api";
-
 import  telaApp01 from '../../assets/images/img01.png';
 
 const Login = () => {
