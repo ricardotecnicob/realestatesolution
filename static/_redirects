@@ -1,0 +1,4 @@
+/login
+/dashboard
+/listimoveis
+/detalhes /:id

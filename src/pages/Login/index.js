@@ -1,4 +1,4 @@
-import React, { useStae, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, LoginContainer, HeaderTop ,  Rodape } from './styles';
@@ -23,9 +23,7 @@ const Login = () => {
 
     const loginNow = () => {
 
-        if(email == 'teste@gmail.com' && password == 'teste@123'){
-            
-        }
+        window.location.href ='/dashboard'
 
     };
 
