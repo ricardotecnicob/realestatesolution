@@ -36,12 +36,12 @@ export default function Dashboard() {
     callProperties();
   }, []);
 
-  const onChangeUser = (name, email, phone) => {
-    setUser({name, email, phone});
+  const onChangeUser = (name, email, phone, image) => {
+    setUser({name, email, phone, image});
   };
 
   const itemParams = params => {
-    onChangeUser(params.name, params.email, params.phone);
+    onChangeUser(params.name, params.email, params.phone, params.image);
     setDimmer(params.effect);
     setOpen(params.openabrir);
   };
@@ -84,7 +84,7 @@ export default function Dashboard() {
               {properties.map(({ _id, preco, cidade, bairro, estado, name, email, phone, images }) => (
                 <CardImoveis key={_id}>
                   <div className="areaImg">
-                    <img src={imovel} border="0" alt="" height="120px" width="170px" />
+                    <img src={images !== null ? require(`../../assets/images/${images[0]}`) : imovel} border="0" alt="" height="120px" width="170px" />
                   </div>
                   <div className="areaAdressValue">
                     Casa localizada no Bairro {bairro} em {cidade}/{estado}.
@@ -94,7 +94,7 @@ export default function Dashboard() {
 
                     Aluguel: R$ {preco?.toLocaleString('de-DE', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}
                   </div>
-                  <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true, name, email, phone }) } >Dados Interessado</button>
+                  <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true, name, email, phone, image: images[0] }) } >Dados Interessado</button>
                 </CardImoveis>
               ))}
             </ContainerListInteresseContainer>

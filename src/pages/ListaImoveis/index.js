@@ -28,19 +28,16 @@ export default function ListaImoveis() {
   }, []);
 
   const itemParams = params => {
+    setMovel(params.payload);
     setDimmer(params.effect);
     setOpen(params.openabrir);
-    setMovel(params.payload);
   }
 
 
   const close = () => {
     setDimmer('');
     setOpen(false);
-
   }
-
-
 
   return (
     <Container>
@@ -84,7 +81,7 @@ export default function ListaImoveis() {
                         Aluguel: R$ {preco?.toLocaleString('de-DE', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}
                       </div>
                       <button type="button" onClick={() => itemParams({ effect: 'blurring', openabrir: true, payload: { _id, preco, bairro,
-                          cidade, estado, tamanho, quarto, suite, banheiro, garagem, piscina, moveisImbutidos } }) } >Detalhes</button>
+                          cidade, estado, tamanho, quarto, suite, banheiro, garagem, piscina, moveisImbutidos, images } }) } >Detalhes</button>
                     </CardImoveis>
                   ))}
                 </ContainerListInteresseContainer>
@@ -97,7 +94,7 @@ export default function ListaImoveis() {
       <Modal dimmer={dimmer} open={open} onClick={() => close()}>
         <Modal.Header>Detalhes Imóvel</Modal.Header>
         <Modal.Content image>
-          <Image wrapped size='medium' src={imovel} />
+          <Image wrapped size='medium' src={movel.images !== undefined ? require(`../../assets/images/${movel.images[0]}`) : imovel } />
           <Modal.Description>
             <Header>Casa localizada no bairro {movel.bairro} na cidade de {movel.cidade} em {movel.estado}</Header>
             <p>
