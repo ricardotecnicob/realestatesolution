@@ -43,7 +43,7 @@ const ListaDetalhes = ({ match }) => {
       };
 
       await api.post('/match', {name, phone, immobile });
-      history.push('/dashboard');
+      setOpen(false);
     };
 
     return (
